@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+
+\newcommand{\mymacro}{this is the content of my macro!}
+\newcommand{\macroWithArgs}[2]{Applied to #1 and #2!}
+\newcommand{\macroWithDefault}[2][TheDefault]{The TheDefault is #2}
+\newcommand{\numN}{\mathbb{N}}
+\newcommand{\numR}{\mathbb{R}}
+\newcommand{\numC}{\mathbb{C}}
+\newcommand{\cont}{\mathcal{C}}
+%\newcommand{\vecx}{\mathbf{x}}
+%\newcommand{\example}[2][YYY]{Mandatory arg: #2; Optional arg: #1.}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\contOn}[1]{\cont{(#1)}}
+\newcommand{\contDef}[1][{}]{\cont{}#1}
+%\newcommand{\smartCont}[1][]{\cont{}}
+\newcommand{\smartCont}[1][{}]{
+    \cont{}
+\ifthenelse{\equal{#1}{}}
+{} 
+{(#1)}
+}
+
+
+
+\begin{document}
+
+\mymacro{} \mymacro{} \mymacro{}
+
+\macroWithArgs{\mymacro}{42}
+
+\macroWithDefault{\emph{not the default}}
+
+\macroWithDefault[\textbf{overriden by the argumant}]%
+{\emph{not the default}}.
+\begin{enumerate}
+    \item Number systems: $\numN, \numR, \numC$
+    \item continuous functions: $\cont{}$
+    %\item functions: ${\cont( \numR^2 ), \cont([0,1])} $
+    \item fun-ctions: $\contOn{\numR{}^2}$, $\contOn{[0,1]}$
+    %\item vector: $\vecx$
+    \item vecthor:$\vect{AB}$, $a \vect{x}$
+    \item cont. with default: $\contDef$, $\contDef[(\numR)]$
+    \item Smart Con:$\smartCont{}$, $\smartCont[\numC]$
+\end{enumerate}
+
+\end{document}

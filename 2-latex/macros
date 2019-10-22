@@ -1,0 +1,4 @@
+\documentclass{artical}
+\newcommand{\mymacro}{this is the content of my macro!};
+\newcommand{\microWithArgs}[2]{Applied to #1 and #2!}
+\newcommand
